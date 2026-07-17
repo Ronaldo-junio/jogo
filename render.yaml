@@ -2,7 +2,7 @@ services:
   - type: web
     name: jogo-backend
     env: node
-    buildCommand: bash build.sh
+    buildCommand: cd backend && npm install --legacy-peer-deps
     startCommand: cd backend && node src/index.js
     envVars:
       - key: NODE_ENV
@@ -25,7 +25,7 @@ services:
   - type: web
     name: jogo-frontend
     env: node
-    buildCommand: cd frontend && npm install && npm run build
+    buildCommand: cd frontend && npm install --legacy-peer-deps && npm run build
     startCommand: cd frontend && npm start
     staticPublishPath: frontend/build
     envVars:
