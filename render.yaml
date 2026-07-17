@@ -3,7 +3,7 @@ services:
     name: jogo-backend
     env: node
     buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
+    startCommand: cd backend && node src/index.js
     envVars:
       - key: NODE_ENV
         value: production
@@ -15,7 +15,12 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: PORT
-        value: 10000
+        value: "10000"
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: jogo-frontend
+          property: url
 
   - type: web
     name: jogo-frontend
