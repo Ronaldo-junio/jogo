@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: jogo-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromService:
+          type: pserv
+          name: jogo-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 10000
+
+  - type: web
+    name: jogo-frontend
+    env: node
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm start
+    staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: jogo-backend
+          property: url
+
+  - type: pserv
+    name: jogo-db
+    ipAddress: 10.0.0.0/20
+    plan: standard
+    postgresVersion: 14

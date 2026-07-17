@@ -1,0 +1,107 @@
+.App {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #00ff88;
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #00ff88;
+}
+
+.status {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.status.connected {
+  background: rgba(0, 255, 136, 0.2);
+  color: #00ff88;
+}
+
+.status.disconnected {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff4444;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #00ff88;
+}
+
+.login {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 10px;
+  border: 2px solid #00ff88;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login h2 {
+  margin-bottom: 20px;
+  color: #00ff88;
+}
+
+.login input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: #1a1a1a;
+  border: 1px solid #00ff88;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login input:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.login button {
+  width: 100%;
+  padding: 12px;
+  background: #00ff88;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login button:hover {
+  background: #00ffff;
+  transform: scale(1.05);
+}
+
+.message {
+  margin-top: 15px;
+  color: #00ffff;
+  font-style: italic;
+}
