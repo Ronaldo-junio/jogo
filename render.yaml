@@ -2,7 +2,7 @@ services:
   - type: web
     name: jogo-backend
     env: node
-    buildCommand: cd backend && npm install
+    buildCommand: bash build.sh
     startCommand: cd backend && node src/index.js
     envVars:
       - key: NODE_ENV
